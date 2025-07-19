@@ -1,5 +1,7 @@
+import { API_CONFIG } from '../config/api';
+
 // In a real app, this would be an environment variable.
-const API_BASE_URL = 'http://localhost:5001/api';
+const API_BASE_URL = API_CONFIG.BASE_URL;
 
 interface ApiResponse<T = any> {
   success: boolean;

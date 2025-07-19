@@ -1,9 +1,11 @@
+import { API_CONFIG, API_ENDPOINTS } from '../config/api.js';
+
  export async function sendOtp({ email, userName }) {
   // Generate a random 6-digit OTP
   const verificationCode = Math.floor(100000 + Math.random() * 900000).toString();
 
   try {
-    const response = await fetch('http://localhost:5001/api/auth/sendOtpForSignup', {
+    const response = await fetch(`${API_CONFIG.BASE_URL}${API_ENDPOINTS.AUTH.SEND_OTP}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -32,7 +34,7 @@
 
 export async function verifyOtpAndRegister({ email, enteredOtp, userData }) {
   try {
-    const response = await fetch('http://localhost:5001/api/auth/verifyOtpForSignup', {
+    const response = await fetch(`${API_CONFIG.BASE_URL}${API_ENDPOINTS.AUTH.VERIFY_OTP}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -61,7 +63,7 @@ export async function verifyOtpAndRegister({ email, enteredOtp, userData }) {
 
 export async function verifyOtp({ email, enteredOtp }) {
   try {
-    const response = await fetch('http://localhost:5001/api/auth/verifyOtpForSignup', {
+    const response = await fetch(`${API_CONFIG.BASE_URL}${API_ENDPOINTS.AUTH.VERIFY_OTP}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

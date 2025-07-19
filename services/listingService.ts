@@ -1,12 +1,13 @@
 import { RoomListing, RoomListingFormData, RoomLocation } from '../types';
 import { api } from './api';
+import { API_CONFIG, API_ENDPOINTS } from '../config/api';
 
 export const uploadAllotmentProof = async (file: File): Promise<{ allotmentProof: string; filename: string; size: number }> => {
     const formData = new FormData();
     formData.append('allotmentProof', file);
 
     // Use fetch directly for file upload instead of our JSON API wrapper
-    const response = await fetch('http://localhost:5001/api/listings/upload-proof', {
+    const response = await fetch(`${API_CONFIG.BASE_URL}${API_ENDPOINTS.LISTINGS.UPLOAD_PROOF}`, {
         method: 'POST',
         credentials: 'include', // Important for authentication
         body: formData
