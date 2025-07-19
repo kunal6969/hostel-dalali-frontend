@@ -1,6 +1,6 @@
 // API Configuration
 export const API_CONFIG = {
-  BASE_URL: 'https://hostel-dalali-backend.onrender.com/api',
+  BASE_URL: 'https://hostel-dalali-backend-1.onrender.com/api',
   TIMEOUT: 10000, // 10 seconds
   RETRY_ATTEMPTS: 3,
 } as const;
